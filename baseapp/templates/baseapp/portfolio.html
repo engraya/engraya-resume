@@ -1,0 +1,47 @@
+{% extends 'baseapp/base.html' %}
+
+{% load static %}
+{% block content  %}
+    
+ 
+    <!-- ======= Portfolio Section ======= -->
+    <section id="portfolio" class="container">
+        <div class="container">
+  
+          <div class="section-title">
+            <h2>Portfolio/Projects</h2>
+          </div>
+          <div class="row portfolio-container justify-content-center align-content-center" data-aos="fade-up" data-aos-delay="100">
+            {% for portfolio in portfolios %}
+    
+            <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+              <div class="portfolio-wrap">
+                <img src="{{portfolio.cover_image.url}}" class="img-fluid" alt="">
+                <div class="portfolio-links">
+                  <a href="{{portfolio.cover_image.url}}" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="{{portfolio.portfolio_url}}" target="_blank" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+              <a href="{% url 'portfolio_detail' portfolio.id %}" title="More Details"><strong class="d-flex justify-content-center mt-3">{{portfolio.title}}</strong></a>
+              <hr>
+            </div>
+            {% endfor %}
+    
+          </div>
+
+          <!-- <ul class="pagination justify-content-center" style="margin:20px 0">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+          </ul> -->
+
+
+        </div>
+
+
+      </section><!-- End Portfolio Section -->
+
+{% endblock content  %}
+    

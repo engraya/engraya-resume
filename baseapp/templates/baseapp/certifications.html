@@ -1,0 +1,56 @@
+{% extends 'baseapp/base.html' %}
+
+{% load static %}
+{% block content  %}
+
+
+  <!-- ======= Portfolio Section ======= -->
+  <section id="portfolio" class="container">
+    <div class="container">
+
+      <div class="section-title">
+        <h2>Certifications</h2>
+      </div>
+
+      <div class="row portfolio-container justify-content-center align-content-center" data-aos="fade-up" data-aos-delay="100">
+        {% for certificate in page_obj %}
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-wrap">
+            <img src="{{certificate.image.url}}" class="img-fluid" alt="">
+            <div class="portfolio-links align-items-center justify-content-center">
+              <a href="{{certificate.image.url}}" data-gallery="portfolioGallery" class="portfolio-lightbox align-items-center justify-content-center d-flex" title="App 1"><button class="btn btn-sm btn-success align-items-center justify-content-center d-flex float-center">View</button></a>
+            </div>
+          </div>
+          <strong class="d-flex justify-content-center mt-3">{{certificate.title}}</strong>
+          <hr>
+        </div>
+        {% endfor %}
+
+      </div>
+
+      <ul class="pagination justify-content-center" style="margin:20px 0">
+        {% if page_obj.has_previous %}
+        <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+        {% endif %}
+
+
+        <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+        <li class="page-item"><a class="page-link" href="?page=2">2</a></li>
+        <li class="page-item"><a class="page-link" href="?page=3">3</a></li>
+
+        {% if page_obj.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+        <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last &raquo;</a></li>
+        {% endif %}
+      </ul>
+
+    </div>
+  </section><!-- End Portfolio Section -->
+
+{% endblock content %}
+
+    
+
+    

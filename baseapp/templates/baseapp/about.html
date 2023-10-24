@@ -1,0 +1,151 @@
+{% extends 'baseapp/base.html' %}
+
+{% load static %}
+{% block content  %}
+    
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container">
+          
+          <div class="section-title">
+            <h2>About</h2>
+
+          </div>
+  
+          {% for about in abouts %}
+          <div class="row">
+            <!-- <div class="col-lg-4" data-aos="fade-right">
+              <img src="{% static 'assets/img/aya.jpg' %}" class="img-fluid" alt="">
+            </div> -->
+            <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
+              <h3>{{about.profession}}</h3>
+      
+              <div class="row">
+                <div class="col-lg-6">
+                  <ul>
+
+                    <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>{{about.email}}</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>{{about.phone_Number}}</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Nationality:</strong> <span>{{about.nationality}}</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>State:</strong> <span>{{about.state}}</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>{{about.city}}</span></li>
+                  </ul>
+                </div>
+                <div class="col-lg-6">
+                  <ul>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Date of Birth:</strong> <span>{{about.date_of_birth}}</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Age:</strong> <span>{{about.age}}</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Qualification:</strong> <span>{{about.qualification}}</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Github:</strong> <span>{{about.github}}</span></li>
+                    <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>{{about.freelance_status}}</span></li>
+                  </ul>
+                </div>
+              </div>
+         
+            </div>
+          </div>
+
+          <div class="section-title my-5">
+            <h2>Professional Summary</h2>
+            <p>{{about.about_description|linebreaks}}</p>
+          </div>
+          {% endfor %}
+
+          <!-- ======= Skills Section ======= -->
+          <section id="skills" class="skills section-bg">
+            <div class="container">
+
+              <div class="section-title">
+                <h2>Soft Skills</h2>
+              </div>
+              
+              <div class="row skills-content">
+                {% for skill in skills %}
+                <div class="col-lg-3" data-aos="fade-up">
+
+                  <div class="progress">
+                    <span class="skill">{{skill.title}}</span>
+                  </div>
+
+                </div>
+                {% endfor %}
+  
+              </div>
+            </div>
+          </section><!-- End Skills Section -->
+          <!-- ======= Skills Section ======= -->
+          <section id="skills" class="skills section-bg">
+            <div class="container">
+
+              <div class="section-title">
+                <h2>Softwares</h2>
+              </div>
+              
+              <div class="row skills-content">
+                {% for software in softwares %}
+                <div class="col-lg-3" data-aos="fade-up">
+
+                  <div class="progress">
+                    <span class="skill">{{software.title}}</span>
+                  </div>
+
+                </div>
+                {% endfor %}
+
+              </div>
+            </div>
+          </section><!-- End Skills Section -->
+
+           <!-- ======= Skills Section ======= -->
+           <section id="skills" class="skills section-bg">
+            <div class="container">
+
+              <div class="section-title">
+                <h2>Tech Skills</h2>
+              </div>
+              
+              <div class="row skills-content">
+                {% for techskill in techskills %}
+                <div class="col-lg-6" data-aos="fade-up">
+                  <div class="progress">
+                    <p class="skill">{{techskill.title}}</p>
+                  </div>
+                </div>
+                {% endfor %}
+
+              </div>
+            </div>
+          </section><!-- End Skills Section -->
+
+          <!-- ======= Skills Section ======= -->
+          <section id="skills" class="skills section-bg">
+            <div class="container">
+
+              <div class="section-title">
+                <h2>Tech Stack</h2>
+              </div>
+
+              <div class="row skills-content">
+                {% for techstack in techstacks %}
+                <div class="col-lg-6" data-aos="fade-up">
+
+                  <div class="progress">
+                    <h6><span class="skill">{{techstack.title}}</span></h6>
+                    <p>{{techstack.subtitle}}</p>
+                  </div>
+    
+                </div>
+                {% endfor %}
+              </div>
+
+            </div>
+          </section><!-- End Skills Section -->
+
+
+  
+        </div>
+      </section><!-- End About Section -->
+
+{% endblock content  %}
+    
+

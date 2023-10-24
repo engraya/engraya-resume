@@ -1,0 +1,98 @@
+{% extends 'baseapp/base.html' %}
+
+{% load static %}
+{% block content  %}
+    
+     <!-- ======= Resume Section ======= -->
+     <section id="resume" class="resume">
+        <div class="container">
+  
+          <div class="section-title">
+            <h2>Resume</h2>
+          </div>
+          <div class="row" data-aos="fade-up">
+            <div class="col-lg-12 my-1 d-flex justify-content-center">
+              <h3 class="resume-title">Education and Membership</h3>
+            </div>
+            <hr>
+          </div>
+          <div class="row">
+            <div class="col-lg-6" data-aos="fade-up">
+              <h3 class="resume-title">Education</h3>
+              {% for education in educations %}
+              <div class="resume-item">
+                <h4>{{education.title}}</h4>
+                <h5>{{education.starting_date}} - {{education.ending_date}}</h5>
+                <p><em>{{education.institution}}</em></p>
+                {% for certificate in education.educationcertificate_set.all %}
+                <a class="btn btn-success" target="_blank" href="{{certificate.image.url}}">View Certificate</a>
+                {% endfor %}
+              </div>
+              {% endfor %}
+
+       
+            </div>
+            <div class="col-lg-6" data-aos="fade-up">
+              <h3 class="resume-title">Membership</h3>
+              {% for membership in memberships%}
+              <div class="resume-item">
+                <h4>{{membership.title}}</h4>
+                <h5>Membsership ID - {{membership.membership_id}}</h5><br>
+                <h5>{{membership.issuing_year}}</h5>
+                <p><em>{{membership.issuing_body}}</em></p>
+                {% for certificate in membership.membershipcertificate_set.all %}
+                <a class="btn btn-success" target="_blank" href="{{certificate.image.url}}">View Certificate</a>
+                {% endfor %}
+              </div>
+              {% endfor %}
+     
+            </div>
+            <hr>
+            <div class="row" data-aos="fade-up">
+              <div class="col-lg-12 my-4 d-flex justify-content-center">
+                <h3 class="resume-title">Professional Experience</h3>
+              </div>
+              <hr>
+            </div>
+            {% for experience in experiences %}
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+         
+              <div class="resume-item">
+                <h4>{{experience.job_title}}</h4>
+                <h5>{{experience.starting_date}} - {{experience.ending_date}}</h5>
+                <p><em>{{experience.work_place}} </em></p>
+                <ul>
+                  {% for description in experience.jobdescription_set.all %}
+                  <li>{{description.description}}</li>
+                  {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% endfor %}
+            <hr>
+            <div class="row" data-aos="fade-up">
+              <div class="col-lg-12 my-4 d-flex justify-content-center">
+                <h3 class="resume-title">Refrees</h3>
+              </div>
+              <hr>
+            </div>
+            {% for refree in refrees %}
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+         
+              <div class="resume-item">
+                <h4>{{refree.name}}</h4>
+                <h5>{{refree.profession}}</h5>
+                <p><em>{{refree.work_place}} </em></p>
+                <p><em>Email : {{refree.email}} </em></p>
+                <p><em>Telephone : {{refree.telephone}} </em></p>
+              </div>
+            </div>
+            {% endfor %}
+     
+          </div>
+  
+        </div>
+      </section><!-- End Resume Section -->
+
+{% endblock content  %}
+    
